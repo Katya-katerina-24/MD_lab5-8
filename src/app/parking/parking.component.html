@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col m3 s6 offset-m3 center-align">
+        <h5> {{parking.nameParking}}</h5>
+    </div>
+    <div class="col m3 s6 center-align">
+        <a class="btn-floating waves-effect waves-light blue"(click)="showInfo=!showInfo">
+            <i *ngIf="showInfo" class="material-icons">
+                keyboard_arrow_up
+            </i>
+            <i *ngIf="!showInfo" class="material-icons">
+                keyboard_arrow_down
+            </i>
+        </a>
+        <a [routerLink] = "'/cars/'+parking.nameParking"
+            class="btn-floating waves-effect waves-light blue-grey">
+            <i class="material-icons">
+                view_headline
+            </i>
+        </a>
+    </div>
+</div>
+
+<div class="info" *ngIf="showInfo">
+    <div class="col m6 offset-m3 s12">
+    <div class="input-field">
+        <input id="nameParking" [(ngModel)]="parking.nameParking" type="text" class="validate">
+        <label for="nameParking" class="active">Автостоянка</label>
+    </div>
+    <div class="input-field">
+        <input id="address" [(ngModel)]="parking.address" type="text" class="validate">
+        <label for="address" class="active">Адрес</label>
+    </div>
+    <div class="input-field">
+        <input id="manager" [(ngModel)]="parking.manager" type="text" class="validate">
+        <label for="manager" class="active">Директор</label>
+    </div>
+    <div class="input-field">
+        <input id="quantity" [(ngModel)]="parking.carsQuantity" type="text" class="validate">
+        <label for="quantity" class="active">Кількість автомобілів</label>
+    </div>
+    <a class="rem-row btn-floating waves-effect waves-light red" (click)="delParking()">
+        <i class="material-icons">delete</i>
+    </a>
+</div>
+</div>
+

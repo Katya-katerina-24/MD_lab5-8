@@ -1,0 +1,6 @@
+<h5 class="center-align">Список автомобілів</h5>
+    <app-new-parking></app-new-parking>
+    <app-parking 
+                *ngFor="let parking of parkings; let i = index"
+                [parking]="parking" [prkIndex]="i">
+    </app-parking>

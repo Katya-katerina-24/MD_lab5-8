@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col m6 offset-m3 s12">
+        <a *ngIf="!showForm" (click)="showForm=true" class="btn-floating btn-large waves-effect waves-light green">
+            <i class="material-icons">add</i>
+        </a>
+        
+        <form *ngIf="showForm" #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+            <h5>Нова автостоянка</h5>
+            <div class="input-field">
+                <input id="nameParking" name="nameParking" ngModel 
+                required  type="text">
+                <label for="nameParking">Назва автостоянки</label>
+            </div>
+            <div class="input-field">
+                <input id="address" name="address" ngModel 
+                required  type="text">
+                <label for="address">Адреса</label>
+            </div>
+            <div class="input-field">
+                <input id="manager" name="manager" ngModel 
+                required  type="text">
+                <label for="manager">Директор</label>
+            </div>
+            <div class="input-field">
+                <input id="carsQuantity" name="carsQuantity" ngModel 
+                required  type="text">
+                <label for="carsQuantity">Кількість автомобілів</label>
+            </div>
+            <div class="input-field">
+                <button type="button" (click)="showForm=false"
+                class="rem-row btn-floating waves-effect waves-light left blue-grey">
+                <i class="material-icons">keyboard_arrow_up</i>
+            </button>
+            <button type="submit" [disabled]="myForm.invalid"
+                class="rem-row btn-floating waves-effect waves-light green right">
+                <i class="material-icons">done</i>
+            </button>
+            </div>
+        </form>
+    </div>
+</div>
